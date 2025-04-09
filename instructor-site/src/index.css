@@ -1,7 +1,14 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 @theme {
-  --font-display: Helvetica, sans-serif;
+  --font-display: "Inter", sans-serif;
+  --breakpoint-lgmd: 56rem;
+  --color-tur_blue: #0FA3B1;
+  --color-blue_sky: #00A6FF;
+  --color-vibe_purp: #954FFE;
+  --color-deep_purp: #6200F5;
+  --color-slate_blue: #274060;
 }
 
 
@@ -12,3 +19,20 @@
   src: local('Helvetica'), url('Helvetica.woff') format('woff');
   }
 
+
+  /* HTML: <div class="triangle"></div> */
+.triangle {
+  --r:20px; /* border radius */
+
+  width: 180px;
+  aspect-ratio: 1/cos(30deg);
+  --_g:calc(tan(60deg)*var(--r)) bottom var(--r),#000 98%,#0000 101%;
+  -webkit-mask:
+    conic-gradient(from -30deg at 50% calc(200% - 3*var(--r)/2),#000 60deg,#0000 0)
+     0 100%/100% calc(100% - 3*var(--r)/2) no-repeat,
+    radial-gradient(var(--r) at 50% calc(2*var(--r)),#000 98%,#0000 101%),
+    radial-gradient(var(--r) at left  var(--_g)),
+    radial-gradient(var(--r) at right var(--_g));
+  clip-path: polygon(50% 0,100% 100%,0 100%);
+  background: linear-gradient(45deg,#FA6900,#C02942);
+}
